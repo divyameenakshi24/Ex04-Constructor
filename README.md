@@ -3,56 +3,81 @@
  To write a C# program to calculate the salary of an employee by passing the name, designation, noofexperience, basic salary and insurance amount through constructor.
  
  ## Algorithm:
- ### Step1:
- 
- 
- 
+ ### Step1: 
+Start
+### Step2:
+Create a class and a constructor
+### Step3:
+Get name, designation, noofexperience, basic salary and insurance amount from the User.
+### Step4:
+call salary method in constructor to calculate salary.
+### Step5:
+call display method to display the output.
+### Step6:
+stop
  ## Program:
- ```
+ ```c#
  using System;
-namespace Exception
-{ 
-    public class Employee
-    { 
-        public String work, name;
-        public int exp,bs,insurance;
-        double hra,ta,salary;
-        public Employee(String name, String work, int exp, int bs, int insurance)
+namespace Project
+{
+    public class exp4
+    {
+        public string name, designation;
+        public int exp, bs, ins, hra = 0, ta = 0, s = 0;
+        void salary(int bs,int ins)
+        {
+            hra = (20 * bs) / 100;
+            ta = (10 * bs) / 100;
+            s = bs + hra + ta-ins;
+        }
+        void display()
+        {
+            Console.WriteLine("Name of the employee is "+this.name+ " having "+this.exp+ " of experience, working as "+this.designation);
+            Console.WriteLine("Receives " + s + " of salary");
+        }
+        public exp4(string name, string designation, int exp, int bs, int ins)
         {
             this.name = name;
-            this.work = work;
+            this.designation = designation;
             this.exp = exp;
             this.bs = bs;
-            this.insurance = insurance;
+            this.ins = ins;
+            salary(bs,ins);
+            display();
         }
-        public void Salary()
-        {
-            hra = this.bs * 0.2;
-            ta = this.bs * 0.1;
-            salary = this.bs + hra + ta-this.insurance;
-        }
-        public void display()
-        {
-            Console.WriteLine("Name of the employee is " + this.name + " having " + this.exp + " of experience, working as " + this.work + " Receives " + salary + " of salary");
-        }
+            
     }
-    class TestEmployee
-    {
-        public static void Main(string[] args)
+    public class program
+    {   
+        static void Main(String[] args)
         {
-            Employee e1 = new Employee("Hari", "Tester", 10, 30000, 1000);
-            Employee e2 = new Employee("Latha", "Developer", 5, 25000, 1000);
-            e1.Salary();
-            e2.Salary();
-            e1.display();
-            e2.display();
+            string nam, desig;
+            int exp, bs, ins,n;
+            Console.WriteLine("Enter no of employees: ");
+            n = Convert.ToInt32(Console.ReadLine());
+            for (int i = 1; i <= n; i++)
+            {
+                Console.WriteLine("Enter name of the employee: ");
+                nam = Console.ReadLine();
+                Console.WriteLine("Enter designation of the employee: ");
+                desig = Console.ReadLine();
+                Console.WriteLine("Enter years of experience of the employee: ");
+                exp = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter basic salary of the employee: ");
+                bs = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter insurance: ");
+                ins = Convert.ToInt32(Console.ReadLine());
+                exp4 emp = new exp4(nam,desig,exp,bs,ins);
+            }
 
+            
         }
     }
 }
-```
- 
+ ```
  ## Output:
- ![Screenshot 2022-05-05 161611](https://user-images.githubusercontent.com/75235402/166908587-a7365e85-23ee-49d2-a503-6565d7f4b3f8.jpg)
+![Screenshot 2022-05-07 121917](https://user-images.githubusercontent.com/75235402/167242684-6a9561ee-bf58-4f63-8804-5d371975651f.jpg)
+
 
  ## Result:
+ Thus C# program to calculate the salary of an employee by passing the name, designation, noofexperience, basic salary and insurance amount through constructor is executed successfully.
